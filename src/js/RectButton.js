@@ -3,21 +3,15 @@ export default class Button extends PIXI.Container {
 
 constructor() {
     super()
+
+    this.rect = new PIXI.Graphics();
+    this.rect.beginFill(0xFFFFFF);
+    this.rect.drawRoundedRect(-50, -50, 100, 100, 10)
+    const styles = {fontsize:50 }
+    this.text = new PIXI.Text("9", styles);
+    this.text.anchor = {x: 0.5, y: 0.5}
+    this.addChild(this.rect);
+    this.addChild(this.text);
 }
 }
 
-const container = new PIXI.Container();
-
-app.stage.addChild(container);
-
-const rect = new PIXI.Graphics();
-
-// White rect
-rect.beginFill(0xFFFFFF);
-rect.drawRect(0, 0, 100, 100);
-rect.drawRoundedRect(0, 0, 100, 100, 10)
-container.addChild(rect);
-
-
-let numbers = new Text("9");
-container.addChild(numbers);
