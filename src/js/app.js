@@ -9,6 +9,9 @@ document.body.appendChild(app.view);
 // button.x = 100;
 // button.y = 100;
 // app.stage.addChild(button)
+//
+// app.ticker.add(gameLoop)
+//  function gameLoop(delta){}
 
 const board = new Board()
 board.x = app.screen.width / 2 -100;

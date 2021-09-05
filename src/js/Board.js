@@ -9,8 +9,9 @@ export default class Board extends PIXI.Container {
             this.rect.beginFill(0xFFFFFF);
             this.rect.x = (i % 3) * 110;
             this.rect.y = Math.floor(i / 3) * 110;
-            // this.rect.anchor.set(-50, -50, 100, 100, 10);
             this.rect.drawRoundedRect(-50, -50, 100, 100, 10)
+            this.rect.interactive=true;
+            this.rect.buttonMode=true;
             this.addChild(this.rect);
         }
 
