@@ -12,7 +12,7 @@ constructor() {
     this.rect.interactive=true
     this.rect.buttonMode=true
     this.rect.on('click', function(){
-        console.log('hello');})
+        console.log('hello epta');})
 
     const styles = {fontsize:50 }
     this.text = new PIXI.Text("9", styles);
