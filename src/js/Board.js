@@ -12,6 +12,8 @@ export default class Board extends PIXI.Container {
             this.rect.drawRoundedRect(-50, -50, 100, 100, 10)
             this.rect.interactive=true;
             this.rect.buttonMode=true;
+            this.rect.on('click', function(){
+                console.log(values[i]);})
             this.addChild(this.rect);
         }
 
