@@ -1,63 +1,20 @@
+import Button from './RectButton.js'
+
 export default class Board extends PIXI.Container {
 
-    constructor() {
+    constructor(props) {
         super()
-
-        for (let i = 0; i < 9; i++) {
-
-            this.rect = new PIXI.Graphics();
-            this.rect.beginFill(0xFFFFFF);
-            this.rect.x = (i % 3) * 110;
-            this.rect.y = Math.floor(i / 3) * 110;
-            this.rect.drawRoundedRect(-50, -50, 100, 100, 10)
-            this.rect.interactive = true;
-            this.rect.buttonMode = true;
-            this.rect.on('click', function () {
-                console.log(values[i])
-            })
-            // this.rect.on('click',doDoubleClick)
-            // this.rect.on('click',doTrueClick)
-            this.addChild(this.rect);
-        }
-
-        // function doTrueClick() {
-        //     if (doTrueClick()) {
-        //         this.tint = 0x00FF00
-        //     }
-        //     else {
-        //         this.tint = 0xFF0000
-        //     }
-        // }
-        //
-        // function doDoubleClick() {
-        //     if ('click') {
-        //         this.tint = 0X00FF00
-        //     }
-         //}
-
-        const values = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-        function shuffleArray(array) {
-            for (var i = array.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                var temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
+        this.props = props
+        this.buttons = this.props.array.map((n, i) => {
+            const b = new Button(n, this.props.width, this.props.height)
+            const row = Math.floor(i / 3)
+            const col = i % 3
+            b.position = {
+                x: (this.props.width + this.props.margin) * col,
+                y: (this.props.height + this.props.margin) * row
             }
-            return array
-        }
-
-        const newarray = shuffleArray(values)
-
-        for (let i = 0; i < 9; i++) {
-            const styles = {fontsize: 50}
-            this.text = new PIXI.Text(newarray[i], styles)
-            console.log(styles)
-            this.text.anchor = {x: 0.5, y: 0.5}
-            this.text.x = (i % 3) * 110;
-            this.text.y = Math.floor(i / 3) * 110;
-            this.addChild(this.text);
-        }
+            return b
+        })
+        this.addChild(...this.buttons)
     }
 }
-
