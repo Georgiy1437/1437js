@@ -9,33 +9,24 @@ export default class Button extends PIXI.Container {
 
         this.rect.interactive = true
         this.rect.buttonMode = true
-        this.rect.on('click', function () {
-            console.log(n)
+        this.rect.on('click', () => {
+            console.log('click on button', {n, button: this})
+            this.emit('click', {n, button: this})
         })
-        this.rect.on('click', doGreenClick)
-        this.rect.on('click', doRedClick)
-        this.rect.on('click', doWhiteClick)
-
-
-
-        function doGreenClick() {
-            this.tint = 0x00FF00
-        }
-
-        function doRedClick() {
-
-
-        }
-        function doWhiteClick() {
-
-
-        }
-
 
         const styles = {fontsize}
         this.text = new PIXI.Text(n, styles);
         console.log(styles)
         this.text.anchor = {x: 0.5, y: 0.5}
         this.addChild(this.rect, this.text);
+    }
+    doGreenClick() {
+        this.rect.tint = 0x00FF00
+    }
+    doRedClick() {
+        this.rect.tint = 0xFF0000
+    }
+    doWhiteClick() {
+        this.rect.tint = 0xFFFFFF
     }
 }

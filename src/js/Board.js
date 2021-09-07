@@ -13,6 +13,11 @@ export default class Board extends PIXI.Container {
                 x: (this.props.width + this.props.margin) * col,
                 y: (this.props.height + this.props.margin) * row
             }
+            b.on('click', (e) => {
+                console.log('button is pressed', e)
+                this.emit('clickOnButton', e)
+
+            })
             return b
         })
         this.addChild(...this.buttons)
