@@ -13469,7 +13469,7 @@ var PIXI = (function (exports) {
 	        _this.source = source;
 	        /**
 	         * If set to `true`, will force `texImage2D` over `texSubImage2D` for uploading.
-	         * Certain types of media (e.g. video) using `texImage2D` is more performant.
+	         * Certain types of audio (e.g. video) using `texImage2D` is more performant.
 	         * @member {boolean}
 	         * @default false
 	         * @private

@@ -12,6 +12,15 @@ board.y = app.screen.width / 2 - 100;
 app.stage.addChild(board)
 
 
+var audio = document.createElement("AUDIO")
+document.body.appendChild(audio);
+audio.src = "audio/aymuzh.mp3"
+
+document.body.addEventListener("dblclick", function () {
+    audio.play()
+})
+
+
 let queue = Promise.resolve()
 
 shuffle(array).forEach((n) => {
@@ -39,17 +48,18 @@ function createStep(n) {
                 resolve()
                 setTimeout(() => {
                     e.button.doWhiteClick()
-                }, 5000)
+                }, 1000)
             } else {
                 e.button.doRedClick()
                 console.log('try again')
                 setTimeout(() => {
                     e.button.doWhiteClick()
-                }, 5000)
+                }, 1000)
             }
         })
     })
 }
+
 
 function shuffle(arr) {
     const array = []
