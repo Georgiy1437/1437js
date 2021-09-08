@@ -5,8 +5,8 @@ export default class Board extends PIXI.Container {
     constructor(props) {
         super()
         this.props = props
-        this.buttons = this.props.array.map((n, i) => {
-            const b = new Button(n, this.props.width, this.props.height)
+        this.buttons = this.props.array.map((label, i) => {
+            const b = new Button(label, this.props.width, this.props.height)
             const row = Math.floor(i / 3)
             const col = i % 3
             b.position = {

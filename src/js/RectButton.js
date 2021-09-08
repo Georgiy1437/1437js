@@ -1,6 +1,6 @@
 export default class Button extends PIXI.Container {
 
-    constructor(n, width, height, fontsize) {
+    constructor(label, width, height, fontsize) {
         super()
 
         this.rect = new PIXI.Graphics();
@@ -10,14 +10,12 @@ export default class Button extends PIXI.Container {
         this.rect.interactive = true
         this.rect.buttonMode = true
         this.rect.on('click', () => {
-            console.log('click on button', {n, button: this})
-            this.emit('click', {n, button: this})
+            console.log('click on button', {n: label, button: this})
+            this.emit('click', {n: label, button: this})
         })
 
-        const styles = {fontsize}
-        this.text = new PIXI.Text(n, styles);
-        console.log(styles)
-        this.text.anchor = {x: 0.5, y: 0.5}
+        this.text = new PIXI.Text(label, {fontsize: fontsize});
+        this.text.anchor = {x: 0.5, y: 0.5};
         this.addChild(this.rect, this.text);
     }
     doGreenClick() {
@@ -29,4 +27,8 @@ export default class Button extends PIXI.Container {
     doWhiteClick() {
         this.rect.tint = 0xFFFFFF
     }
+    doPurpleClick() {
+        this.rect.tint = 0x8000FF
+    }
+
 }
