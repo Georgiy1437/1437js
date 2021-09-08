@@ -14,7 +14,17 @@ app.stage.addChild(board)
 
 var audio = document.createElement("AUDIO")
 document.body.appendChild(audio);
-audio.src = "audio/aymuzh.mp3"
+audio.src = [
+    "audio/aymuzh.mp3",
+    "audio/1.mp3",
+    "audio/2.mp3",
+    "audio/3.mp3",
+    "audio/4.mp3",
+    "audio/5.mp3",
+    "audio/6.mp3",
+    "audio/7.mp3",
+    "audio/8.mp3",
+    "audio/9.mp3"]
 
 document.body.addEventListener("dblclick", function () {
     audio.play()
