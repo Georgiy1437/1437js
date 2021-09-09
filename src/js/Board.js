@@ -4,21 +4,22 @@ export default class Board extends PIXI.Container {
 
     constructor(props) {
         super()
+
         this.props = props
         this.buttons = this.props.array.map((label, i) => {
-            const b = new Button(label, this.props.width, this.props.height)
+            const bot = new Button(label, this.props.width, this.props.height)
             const row = Math.floor(i / 3)
             const col = i % 3
-            b.position = {
+            bot.position = {
                 x: (this.props.width + this.props.margin) * col,
                 y: (this.props.height + this.props.margin) * row
             }
-            b.on('click', (e) => {
+            bot.on('click', (e) => {
                 console.log('button is pressed', e)
                 this.emit('clickOnButton', e)
 
             })
-            return b
+            return bot
         })
         this.addChild(...this.buttons)
     }

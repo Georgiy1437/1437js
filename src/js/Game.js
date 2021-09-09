@@ -16,15 +16,14 @@ export default class Game extends PIXI.Container {
         })
     }
     // startnew() {
-    //     this.greet() // воспроизводить аудио приветствие
+    //     this.greeting() // воспроизводить аудио приветствие
     //     this.createQuestions() // создание вопросов, генерация ранд. массива из чисел
     //     this.createBoard() // сетка из кубиков 3*3
     //     this.run() // запускает геймплей!!! запускает аудио и сравнивает с ответом.
     //refactoring
-
    // }
     start(){
-        player.src = "assets/audio/aymuzh.mp3"
+        player.src = "assets/audio/privet_davay_poigraem.mp3"
         player.play()
 
         const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -37,10 +36,10 @@ export default class Game extends PIXI.Container {
 
         let queue = Promise.resolve()
 
-        shuffle(array).forEach((n) => {
+        shuffle(array).forEach((num) => {
             queue = queue.then(() => {
-                console.log('find n = ', n)
-                return createStep(n)
+                console.log('find n = ', num)
+                return createStep(num)
             })
         })
 
@@ -48,10 +47,11 @@ export default class Game extends PIXI.Container {
             console.log('EXERCISE IS COMPLETE')
         })
 
-        function createStep(n) {
+
+        function createStep(num) {
             return new Promise((resolve) => {
                 board.on('clickOnButton', (e) => {
-                    if (n === e.n) {
+                    if (num === e.n) {
                         console.log('right')
                         board.removeListener('clickOnButton')
                         e.button.doGreenClick()
