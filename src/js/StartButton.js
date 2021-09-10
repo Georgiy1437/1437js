@@ -12,7 +12,7 @@ export default class StartButton extends PIXI.Container {
         this.text.anchor = {x: 0.5, y: 0.5};
         this.addChild(this.text);
 
-        this.interactive = true
-        this.buttonMode = true
-    }
-}
+        this.interactive = true;
+        this.buttonMode = true;
+    };
+};

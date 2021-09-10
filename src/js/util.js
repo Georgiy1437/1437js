@@ -1,8 +1,8 @@
 export function shuffle(arr) {
-    const array = []
+    const questions = [];
     for (let i = 0; i < 9; i++) {
-        const randomIndex = Math.round(Math.random() * arr.length - 1)
-        array.push(arr.splice(randomIndex, 1)[0])
-    }
-    return array
-}
+        const randomIndex = Math.round(Math.random() * arr.length - 1);
+        questions.push(arr.splice(randomIndex, 1)[0]);
+    };
+    return questions;
+};
