@@ -15,7 +15,7 @@ export default class Board extends PIXI.Container {
             };
             rectButton.on('click', (e) => {
                 console.log('button is pressed', e);
-                this.emit('clickOnButton', e);
+                this.emit('selectAnswer', e);
             });
             return rectButton;
         });
