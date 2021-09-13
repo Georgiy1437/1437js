@@ -1,7 +1,6 @@
 import StartButton from "./StartButton.js";
 import {shuffle} from "./util.js";
 import Board from "./Board.js";
-//import {createStep} from "./createStep.js";
 
 const player = document.getElementById("player");
 const playIntro = document.getElementById("playIntro");
@@ -66,7 +65,7 @@ export default class Game extends PIXI.Container {
                         console.log(i, button)
                         return button.label == correctAnswer
                     }).doPurpleClick();
-                }, 3000);
+                }, 9000);
             }
             createTimes();
             this.board.on('selectAnswer', (e) => {
@@ -99,6 +98,12 @@ export default class Game extends PIXI.Container {
                         e.button.doWhiteClick();
                     }, 1000);
                     console.log(numOfClick)
+                    setTimeout(() => {
+                        this.board.buttons.find((button, i) => {
+                            console.log(i, button)
+                            return button.label == correctAnswer
+                        }).doPurpleClick();
+                        },);
                 }
             });
         })
