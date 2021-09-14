@@ -17,6 +17,21 @@ export default class Game extends PIXI.Container {
         });
     };
 
+    resize() {
+        let w = window.innerWidth;
+        let h = window.innerHeight;
+        const factor = 16 / 9;
+        if (w/h <= factor) {
+            this.app.view.style.width = `${w}px`
+            this.app.view.style.height = `${w / factor}px`
+            console.log('resize', {w, h})
+        }
+        if (w/h > factor) {
+            this.app.view.style.height = `${h}px`
+            this.app.view.style.width = `${h * factor}px`
+        }
+    }
+
     createQuestions() {
         this.questions = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]);
         this.arraySound = [
@@ -26,9 +41,9 @@ export default class Game extends PIXI.Container {
     };
 
     createBoard() {
-        this.board = new Board(this.questions, 150, 150, 20);
-        this.board.x = this.app.screen.width / 5;
-        this.board.y = this.app.screen.width / 5;
+        this.board = new Board(this.questions, 300, 300, 20);
+        this.board.x = 1920/2 - this.board.width/2 +150;
+        this.board.y = 1080/2 - this.board.height/2 +150;
         this.app.stage.addChild(this.board);
     };
 
@@ -103,7 +118,7 @@ export default class Game extends PIXI.Container {
                             console.log(i, button)
                             return button.label == correctAnswer
                         }).doPurpleClick();
-                        },);
+                    },);
                 }
             });
         })

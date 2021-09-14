@@ -5,7 +5,7 @@ export default class RectButton extends PIXI.Container {
         this.label = label;
         this.rect = new PIXI.Graphics();
         this.rect.beginFill(0xFFFFFF);
-        this.rect.drawRoundedRect(-width / 2, -height / 2, width, height, 10);
+        this.rect.drawRoundedRect(-width / 2, -height / 2, width, height, 40);
 
         this.rect.interactive = true;
         this.rect.buttonMode = true;
@@ -14,7 +14,7 @@ export default class RectButton extends PIXI.Container {
             this.emit('click', {answer: label, button: this});
         });
 
-        this.text = new PIXI.Text(label, {fontsize: fontsize});
+        this.text = new PIXI.Text(label, {fontSize: fontsize});
         this.text.anchor = {x: 0.5, y: 0.5};
         this.addChild(this.rect, this.text);
     };

@@ -6,7 +6,7 @@ export default class Board extends PIXI.Container {
         super();
 
         this.buttons = questions.map((label, i) => {
-            const rectButton = new RectButton(label, width, height);
+            const rectButton = new RectButton(label, width, height,100);
             const row = Math.floor(i / 3);
             const col = i % 3;
             rectButton.position = {
