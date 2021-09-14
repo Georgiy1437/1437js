@@ -27,8 +27,8 @@ export default class Game extends PIXI.Container {
 
     createBoard() {
         this.board = new Board(this.questions, 150, 150, 20);
-        this.board.x = this.app.screen.width / 2 - 100;
-        this.board.y = this.app.screen.width / 2 - 100;
+        this.board.x = this.app.screen.width / 5;
+        this.board.y = this.app.screen.width / 5;
         this.app.stage.addChild(this.board);
     };
 

@@ -22026,7 +22026,7 @@ var PIXI = (function (exports) {
 	    /**
 	     * Renders the object to its WebGL view
 	     *
-	     * @param {PIXI.DisplayObject} displayObject - The object to be rendered.
+	     * @param {DisplayObject|Container} displayObject - The object to be rendered.
 	     * @param {PIXI.RenderTexture} [renderTexture] - The render texture to render to.
 	     * @param {boolean} [clear=true] - Should the canvas be cleared before the new render.
 	     * @param {PIXI.Matrix} [transform] - A transform to apply to the render texture before rendering.
